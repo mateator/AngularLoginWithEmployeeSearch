@@ -22,9 +22,11 @@ export class HomeComponent implements OnInit {
       data.map((dato:any)=>{
         dato.id= parseInt(dato.id) +10;
       })
+      //debido a los datos que devuelve la  mock api ordeno el nombre completo alfabéticamente en vez del apellido
+      const dataOrderedByName = data.sort((a:Employee, b:Employee) => a.fullname.localeCompare(b.fullname));
 
-      this.employeeList = data;
-      this.employeeListFiltered = data;
+      this.employeeList = dataOrderedByName;
+      this.employeeListFiltered = dataOrderedByName;
     })
   }
 

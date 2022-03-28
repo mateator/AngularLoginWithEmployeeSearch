@@ -4,14 +4,16 @@ $GridItemBorderColor:#eaeaea;
 ion-grid {
   padding: 0 2em 0 2em;
   h1{
-    margin-left: 0.5em;
+    margin-left: 0.3em;
+    font-size: 2.5em;
   }
 }
 
 .employeeInput {
-  //con este cálculo el input encaja al 100% con los employees
+  //ajusto el width con el grid de empleados que tiene margin y padding
   width: calc(100% - 1em);
   margin-left: 0.5em;
+  margin-bottom: 0.5em;
 }
 
 .employee {
@@ -25,6 +27,7 @@ ion-grid {
   h1,
   h2 {
     margin: 0;
+    margin-bottom: 0.3em;
   }
 
   p {
@@ -36,6 +39,7 @@ ion-grid {
   }
   h2 {
     font-size: 1.2em;
+    font-weight: 400;
   }
 }
 

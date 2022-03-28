@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
   loginForm: FormGroup = new FormGroup({});
   isSubmitted: boolean = false;
   ngOnInit(): void {
-    this.loginForm = this.setUpForm({ email: "", password: "" });
+    this.loginForm = this.setUpLoginForm({ email: "", password: "" });
   }
 
   login(form: FormGroup) {
@@ -26,13 +26,14 @@ export class LoginComponent implements OnInit {
     if (form.valid) {
       this.loginService.login(form).subscribe((data: any) => {
         if (data.credentials) {
+          sessionStorage.setItem('auth', "true");
           this.router.navigate(['/home']);
         }
       });
     }
   }
 
-  setUpForm(data: User) {
+  setUpLoginForm(data: User) {
     return new FormGroup({
       email: new FormControl(data.email, [Validators.required, Validators.pattern('.{1,}[@]{1}.{1,}[.]{1}.{2,}')]),
       password: new FormControl(data.password, Validators.required),
